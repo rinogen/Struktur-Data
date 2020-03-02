@@ -1,0 +1,60 @@
+#Mmebuat Queue
+def BuatQueue():
+    namaQueue = []
+    return namaQueue
+
+#Menambahkan Element queue
+def enQueue(namaQueue , data):
+    namaQueue.append(data)
+
+#Menganalisis apakah elemnt pada queue kosong atau tidak
+def isEmpty(namaQueue):
+    return namaQueue == []
+
+#Menghapus / menapilkan queue
+def deQueue(namaQueue):
+    if (not isEmpty(namaQueue)):      
+        x = namaQueue[0]
+        for i in range(len(namaQueue)-1):
+            namaQueue[i] = namaQueue[i+1]
+        namaQueue.pop()
+        return x 
+    
+        '''
+        Versi Simpel dari deQueue yaitu menggunakan pop({index}) --> akan menghapus elemnt pertama 
+        return namaQueue.pop(0)
+        '''
+
+#Cetak queue
+def cetakQueue(namaQueue):
+    print(namaQueue)
+
+#Ambil element depan
+def peekDepan(namaQueue):
+    return[0]
+
+#ambil element belakang
+def peekBelakang(namaQueue):
+    return[-1]
+
+#mengahpus semua element queue
+def clear(namaQueue):
+    namaQueue.clear()
+    
+    
+#CONTOH ANTRIAN 1
+Antrian = BuatQueue()
+
+for i in range (5):
+    data = input()
+    enQueue(Antrian , data)
+
+cetakQueue(Antrian)
+deQueue(Antrian)
+deQueue(Antrian)
+deQueue(Antrian)
+enQueue(Antrian , 7)
+cetakQueue(Antrian)
+clear(Antrian)
+cetakQueue(Antrian)
+            
