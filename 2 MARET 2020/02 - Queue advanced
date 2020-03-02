@@ -1,0 +1,66 @@
+#buat Queue
+def newQueue():
+    Q = []
+    return Q
+
+#pow enQueue
+def enQueue(namaQueue , data):
+    namaQueue.append(data)
+
+
+def powenQueue(namaQueue , Y , X):
+    for i in range (Y):
+        enQueue(namaQueue , X)
+
+#pow deQueue
+def isEmpty(namaQueue):
+    if len(namaQueue) == 0:
+        return True
+    else :
+        return False
+
+def deQueue(namaQueue):
+    if isEmpty(namaQueue): 
+        print ("ERROR = QUEUE KOSONG")
+    else :
+        namaQueue.pop(0)
+        cetakQueue(namaQueue)
+
+def powdeQueue(namaQueue , Y):
+    if len(namaQueue) > Y :
+        for i in range (Y):
+            deQueue(namaQueue)
+        cetakQueue(namaQueue)
+            
+    else :
+        namaQueue.clear()
+#Cetak Queue dengan Spasi
+def cetakQueue(namaQueue):
+    d = "[ "
+    for i in range (len(namaQueue)):
+        d = d + namaQueue[i] + " "
+    d = d + "]"
+    print(d)
+
+#CONTOH 2
+
+queue = newQueue()
+n = int(input())
+for i in range (n):
+    m = input().split(" ")
+    
+    
+    if m[0] == "enqueue" :
+        enQueue(queue , m[1])
+        cetakQueue(queue)
+        
+    elif m[0] == "dequeue":
+        deQueue(queue)
+        
+    elif m[0] == "powenqueue":
+        powenQueue(queue , int(m[1]) , m[2])
+        cetakQueue(queue)
+        
+    elif m[0] == "powdequeue":
+        powdeQueue(queue , int(m[1]))
+    
